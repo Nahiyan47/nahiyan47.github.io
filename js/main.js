@@ -34,6 +34,7 @@ $(document).ready(function($) {
 		$('.home-slider').owlCarousel({
 	    loop:true,
 	    autoplay: true,
+	    autoplayTimeout: 2000,
 	    margin:0,
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
