@@ -29,7 +29,20 @@
   </head>
   <script type="text/javascript">
     <script>
+function toggleText(link) {
+      const dots = link.parentElement.querySelector(".dots");
+      const moreText = link.parentElement.querySelector(".more-text");
 
+      if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        link.textContent = " See less";
+      } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        link.textContent = "See more";
+      }
+    }
     
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -60,6 +73,32 @@ $(document).ready(function(){
 </script>
   </script>
   <style>
+    .blog-container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .blog-post {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+    }
+    .blog-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .more-text {
+      display: none;
+    }
+    .toggle-link {
+      color: #007BFF;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
 ul#menu li {
   display:inline;
 }
@@ -112,6 +151,7 @@ html {
   <li ><a href="#portfolio" style="color: red; text-shadow: 2px 2px 4px #000000;">Portfolio <l style="color: blue">|</l></a> &nbsp;</li>
   <li ><a href="#skills" style="color: red; text-shadow: 2px 2px 4px #000000;">Skills <l style="color: blue">|</l></a> &nbsp;</li>
   <li ><a href="#1234" style="color: red; text-shadow: 2px 2px 4px #000000;">Experience <l style="color: blue">|</l></a> &nbsp;</li>
+  <li ><a href="#blogs" style="color: red; text-shadow: 2px 2px 4px #000000;">Blogs <l style="color: blue">|</l></a> &nbsp;</li>
   <li ><a href="#contact" style="color: red; text-shadow: 2px 2px 4px #000000;">Contact <l style="color: blue">|</l></a> &nbsp;</li>
 </ul>  
         </div>
@@ -478,6 +518,32 @@ html {
         </div>
         </div>
       </section>
+
+      <section class="fito-section">
+        <div class="blog-container" id="blogs">
+
+    <div class="blog-post">
+      <div class="blog-title">Lessons from My GAN Medical Imaging Project</div>
+      <span>
+        Hi, I am John Doe, I am a software engineer. I love to build smart applications
+        <span class="dots">...</span>
+        <span class="more-text"> and explore ways to make systems more intelligent. Recently, I worked on a GAN project for medical image translation that challenged me to apply deep learning to real-world problems. It was a rewarding learning experience.</span>
+        <span class="toggle-link" onclick="toggleText(this)">See more</span>
+      </span>
+    </div>
+
+    <div class="blog-post">
+      <div class="blog-title">Exploring Reinforcement Learning for Recommendations</div>
+      <span>
+        Hi, I am John Doe, I am a software engineer. I love to be professional and help solve real problems through code
+        <span class="dots">...</span>
+        <span class="more-text">. My current interests include reinforcement learning for personalized recommendations. I recently implemented a basic agent using MovieLens data and noticed improved adaptability compared to static models. The journey is ongoing but full of potential!</span>
+        <span class="toggle-link" onclick="toggleText(this)">See more</span>
+      </span>
+    </div>
+
+  </div>
+      </section>
       
 
       <section class="ftco-section ftco-counter" id="section-counter">
@@ -579,4 +645,6 @@ html {
     <script src="js/main.js"></script>
     
   </body>
+
+  
 </html>
