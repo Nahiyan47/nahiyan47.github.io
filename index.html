@@ -77,6 +77,17 @@ $(document).ready(function(){
       });
     } // End if
   });
+  window.addEventListener('load', function() {
+    if(window.location.hash) {
+        var hash = window.location.hash;
+        setTimeout(function() {
+            var element = document.querySelector(hash);
+            if(element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100); // Wait 100ms for animations to initialize
+    }
+});
 });
 </script>
   </script>
